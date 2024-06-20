@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/turma.css">
+    <title>SIGAA++/Turma</title>
+</head>
+<body>
+    <nav>
+        <span class="logo">
+            <img src="/assets/logo.png" alt="logo1">
+        </span>
+        <ul class="menu">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="#">Turma</a></li>
+            <li><a href="#">Chat</a></li>
+            <li><a href="#">Acessar FAQ</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="sidebar">
+            <div class="profile">
+                <img src="/assets/logo.png" alt="Foto de Perfil">
+                <div class="profile_info">
+                    <h2>Felipe Honorato</h2>
+                    <p>Discente</p>
+                </div>
+            </div>
+            <div class="sidebar_barmenu">
+                <h3>Disciplinas</h3>
+                <ul>
+                    <li><p>Engenharia de Software<p></li>
+                    <li><p>Projeto de Software<p></li>
+                    <li><p>Redes de Computatores<p></li>
+                    <li><p>Inteligência Artificial<p></li>
+                    <li><p>Engenharia de Requisitos<p></li>
+                </ul>
+            </div>
+        </div>
+        <div class="conteudo">
+            <div class="login_container">
+                <h2>Cadastro</h2>
+                <form action="/login" method="POST">
+
+                    <label for="disciplina"></label>
+                    <input type="text" id="disciplina" name="disciplina" placeholder="Disciplina" required>
+                    
+                    <label for="letra"></label>
+                    <input type="text" id="letra" name="letra" placeholder="Letra" required>
+
+                    <label for="semestre"></label>
+                    <input type="text" id="letra" name="semestre" placeholder="Semestre" required>
+
+                    <label for="plano"></label>
+                    <input type="text" id="plano" name="plano" placeholder="Plano" required>
+
+                    <label for="docente"></label>
+                    <input type="text" id="letra" name="docente" placeholder="Docente Responsavel" required>
+
+                    <label for="horario"></label>
+                    <input type="text" id="horario" name="horario" placeholder="Horário" required>
+
+                    <label for="local"></label>
+                    <input type="text" id="local" name="local" placeholder="Local" required>
+
+                    <label for="max_alunos"></label>
+                    <input type="text" id="max_alunos" name="max_alunos" placeholder="Max Alunos" required>
+
+                    <label for="chave"></label>
+                    <input type="text" id="chave_acesso" name="chave_acesso" placeholder="Chave de Acesso" required>
+                    
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
