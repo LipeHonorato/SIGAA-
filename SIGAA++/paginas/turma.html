@@ -41,23 +41,26 @@
         </div>
         <div class="conteudo">
             <div class="login_container">
-                <h2>Cadastro</h2>
-                <form action="/login" method="POST">
+                <h2>Criar Turma</h2>
+                <form action="/index.html" method="POST">
 
                     <label for="disciplina">Disciplina</label>
-                    <input type="text" id="disciplina" name="disciplina" placeholder="Nome da disciplina" required>
+                    <input type="text" id="disciplina_id" name="disciplina" placeholder="Nome da disciplina" required>
                     
                     <label for="letra">Letra</label>
                     <input type="text" id="letra" name="letra" placeholder="Letra da turma" required>
 
                     <label for="semestre">Semestre</label>
-                    <input type="text" id="letra" name="semestre" placeholder="Ano e nº do semestre" required>
+                    <input type="text" id="semestre_id" name="semestre" placeholder="Ano e nº do semestre" required>
 
                     <label for="plano">Plano de Ensino</label>
-                    <input type="text" id="plano" name="plano" placeholder="Plano de ensino da turma" required>
+                    <input type="text" id="plano_id" name="plano" placeholder="Plano de ensino da turma" required>
 
                     <label for="docente">Docente</label>
-                    <input type="text" id="letra" name="docente" placeholder="Docente Responsável" required>
+                    <input type="text" id="docente_responsavel_id" name="docente" placeholder="Docente Responsável" required>
+
+                    <label for="docente">Docente Secundario</label>
+                    <input type="text" id="docente_secundario_id" name="docente" placeholder="Docente Secundário" required>
 
                     <label for="horario">Horário</label>
                     <input type="text" id="horario" name="horario" placeholder="Horário das aulas" required>
@@ -76,5 +79,58 @@
             </div>
         </div>
     </main>
+    
+    <script>
+        document.getElementById('createClassForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            // Obtém os valores do formulário
+            const disciplina_id = document.getElementById('disciplina_id').value;
+            const letra = document.getElementById('letra').value;
+            const semestre_id = document.getElementById('semestre_id').value;
+            const plano_id = document.getElementById('plano_id').value;
+            const docente_responsavel_id = document.getElementById('docente_responsavel_id').value;
+            const docente_secundario_id = document.getElementById('docente_secundario_id').value;
+            const horario = document.getElementById('horario').value;
+            const local = document.getElementById('local').value;
+            const max_alunos = document.getElementById('max_alunos').value;
+            const chave_acesso = document.getElementById('chave_acesso').value;
+
+            // Monta o objeto com os dados a serem enviados
+            const data = {
+                disciplina_id: disciplina_id,
+                letra: letra,
+                semestre_id: semestre_id,
+                plano_id: plano_id,
+                docente_responsavel_id: docente_responsavel_id,
+                docente_secundario_id: docente_secundario_id,
+                horario: horario,
+                local: local,
+                max_alunos: max_alunos,
+                chave_acesso: chave_acesso
+            };
+
+            // Envia a requisição HTTP
+            fetch('http://localhost:3000/api/turmas/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                // Adicione lógica adicional aqui para manipular a resposta
+                alert('Enviado com sucesso!');
+                // Redireciona ou limpa o formulário, conforme necessário
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                // Adicione lógica adicional aqui para manipular erros
+            });
+        });
+    </script>
+
 </body>
 </html>
