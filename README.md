@@ -1,4 +1,4 @@
-# SIGAA-INF
+# SIGAA-INF Frontend
 
 # Setup
 
